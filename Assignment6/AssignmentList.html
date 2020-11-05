@@ -1,0 +1,26 @@
+class ProductsList extends React.Component {
+            render(){
+                const { products, toggleOutOfStock, removeProduct, removeOutOfStock } = this.props;
+                const productItems = products.map(product =>  (
+                        <ProductItem 
+                            key={product.id} 
+                            product={product} 
+                            toggleOutOfStock={toggleOutOfStock} 
+                            removeProduct={removeProduct} 
+                        />
+                    )
+                );
+                return(
+                    <section className="list">
+                        <ol>
+                            {productItems}
+                        </ol>
+                        <input 
+                            type="button" 
+                            value="Remove Out Of Stock" 
+                            onClick={() => removeOutOfStock(products)} 
+                        />
+                    </section>
+                )
+            }
+        }
